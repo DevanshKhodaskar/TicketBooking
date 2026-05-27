@@ -30,9 +30,11 @@ public class User {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
+    @JsonIgnore
     @Column(name = "password", nullable = false)
     private String password;
 
+    @JsonIgnore
     @Column(name = "hashed_password", nullable = false)
     private String hashedPassword;
 

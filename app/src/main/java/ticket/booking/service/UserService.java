@@ -34,7 +34,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public String login(String name, String password) throws Exception {
+    public User login(String name, String password) throws Exception {
         Optional<User> user = userRepository.findByName(name);
         if (user.isEmpty()) {
             throw new Exception("User not found");
@@ -44,8 +44,7 @@ public class UserService {
             throw new Exception("Invalid password");
         }
 
-        // TODO: Implement JWT token generation
-        return "jwt-token-" + user.get().getUserId();
+        return user.get();
     }
 
     public User getUserById(String userId) throws Exception {

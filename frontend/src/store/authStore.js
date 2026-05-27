@@ -7,14 +7,6 @@ const normalizeUser = (user = {}) => ({
   user_id: user.user_id ?? user.userId ?? null,
 });
 
-const extractUserIdFromToken = (token = '') => {
-  if (!token) {
-    return '';
-  }
-
-  return token.startsWith('jwt-token-') ? token.slice('jwt-token-'.length) : token;
-};
-
 export const useAuthStore = create((set) => ({
   user: null,
   token: null,
@@ -25,14 +17,15 @@ export const useAuthStore = create((set) => ({
     set({ loading: true, error: null });
     try {
       const response = await api.post('/auth/signup', { name, password });
-      const normalizedUser = normalizeUser(response.data.data);
+      const token = response.data.data?.token ?? '';
+      const normalizedUser = normalizeUser(response.data.data?.user);
 
       set({ 
         user: normalizedUser,
-        token: normalizedUser.userId,
+        token,
         loading: false 
       });
-      localStorage.setItem('token', normalizedUser.userId ?? '');
+      localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(normalizedUser));
       return normalizedUser;
     } catch (error) {
@@ -46,19 +39,15 @@ export const useAuthStore = create((set) => ({
     set({ loading: true, error: null });
     try {
       const response = await api.post('/auth/login', { name, password });
-      const token = response.data.data;
-      const userId = extractUserIdFromToken(token);
+      const token = response.data.data?.token ?? '';
+      const normalizedUser = normalizeUser(response.data.data?.user);
 
       set({ 
+        user: normalizedUser,
         token,
         loading: false 
       });
       localStorage.setItem('token', token);
-
-      const userResponse = await api.get(`/auth/user/${userId}`);
-      const normalizedUser = normalizeUser(userResponse.data.data);
-
-      set({ user: normalizedUser });
       localStorage.setItem('user', JSON.stringify(normalizedUser));
       
       return normalizedUser;
@@ -77,11 +66,28 @@ export const useAuthStore = create((set) => ({
     localStorage.removeItem('user');
   },
 
-  checkAuth: () => {
+  checkAuth: async () => {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
+
     if (token && user) {
       set({ token, user: normalizeUser(JSON.parse(user)) });
+      return;
+    }
+
+    if (!token) {
+      return;
+    }
+
+    try {
+      const response = await api.get('/auth/me');
+      const normalizedUser = normalizeUser(response.data.data);
+      set({ token, user: normalizedUser });
+      localStorage.setItem('user', JSON.stringify(normalizedUser));
+    } catch (error) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      set({ user: null, token: null });
     }
   },
 

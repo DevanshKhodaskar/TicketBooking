@@ -1,8 +1,8 @@
 .navbar {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%);
   color: white;
   padding: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -11,7 +11,7 @@
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 15px 20px;
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,71 +19,79 @@
 
 .navbar-logo {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   text-decoration: none;
   color: white;
   display: flex;
   align-items: center;
   gap: 10px;
+  letter-spacing: -0.5px;
 }
 
 .navbar-logo:hover {
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
-  padding: 8px 15px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 15px;
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .nav-user {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding-left: 15px;
+  padding-left: 20px;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
+  margin-left: 10px;
 }
 
 .user-name {
   color: white;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .logout-btn {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.15);
   color: white;
-  border: 1px solid white;
-  padding: 6px 15px;
-  border-radius: 4px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 18px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .logout-btn:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .signup-link {
   background-color: white;
-  color: #667eea;
-  font-weight: 600;
+  color: #2563eb;
+  font-weight: 700;
 }
 
 .signup-link:hover {
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 @media (max-width: 768px) {
@@ -95,7 +103,7 @@
   .nav-menu {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   .nav-user {
@@ -105,5 +113,6 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 10px;
     padding-left: 0;
+    margin-left: 0;
   }
 }

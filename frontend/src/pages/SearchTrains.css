@@ -44,8 +44,8 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
 }
 
 .trains-list {
@@ -142,29 +142,48 @@
 
 .train-card .btn {
   width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .search-form-card .btn-primary,
 .modal-content .btn-primary,
 .train-card .btn-secondary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%);
   color: #fff;
   border: none;
-  border-radius: 6px;
-  font-weight: 600;
+  border-radius: 10px;
+  font-weight: 700;
+  padding: 14px 28px;
+  font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  cursor: pointer;
 }
 
 .search-form-card .btn-primary:hover,
 .modal-content .btn-primary:hover,
 .train-card .btn-secondary:hover {
-  box-shadow: 0 8px 18px rgba(102, 126, 234, 0.28);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+}
+
+.search-form-card .btn-primary:active,
+.modal-content .btn-primary:active,
+.train-card .btn-secondary:active {
+  transform: translateY(-1px);
 }
 
 .search-form-card .btn-primary:disabled,
 .modal-content .btn-primary:disabled,
 .train-card .btn-secondary:disabled {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
 }
 
 .booking-modal {

@@ -18,7 +18,7 @@
 
 .loading-spinner {
   font-size: 18px;
-  color: #667eea;
+  color: #2563eb;
 }
 
 .empty-state {
@@ -113,16 +113,35 @@
 
 .booking-card .btn {
   width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .btn-danger {
-  background-color: #e74c3c;
+  background-color: #ef4444;
   color: white;
-  padding: 10px 20px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .btn-danger:hover {
-  background-color: #c0392b;
+  background-color: #dc2626;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.35);
+}
+
+.btn-danger:active {
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
