@@ -1,0 +1,251 @@
+.search-trains {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.search-trains h1 {
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-size: 32px;
+}
+
+.search-form-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+
+.trains-list {
+  display: grid;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.results-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: #4a5568;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.train-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.train-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.train-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.train-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 20px;
+}
+
+.train-subtitle {
+  margin: 6px 0 0;
+  color: #718096;
+  font-size: 14px;
+}
+
+.available-seats {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.train-details {
+  margin-bottom: 20px;
+}
+
+.train-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.detail-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.detail-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #718096;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.train-details p {
+  margin: 8px 0;
+  color: #666;
+}
+
+.train-details strong {
+  color: #333;
+}
+
+.train-card .btn {
+  width: 100%;
+}
+
+.search-form-card .btn-primary,
+.modal-content .btn-primary,
+.train-card .btn-secondary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.search-form-card .btn-primary:hover,
+.modal-content .btn-primary:hover,
+.train-card .btn-secondary:hover {
+  box-shadow: 0 8px 18px rgba(102, 126, 234, 0.28);
+}
+
+.search-form-card .btn-primary:disabled,
+.modal-content .btn-primary:disabled,
+.train-card .btn-secondary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.booking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.modal-content h2 {
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.booking-subtitle {
+  margin: -10px 0 20px;
+  color: #718096;
+}
+
+.booking-helper {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #4a5568;
+}
+
+.modal-content .form-group {
+  margin-bottom: 20px;
+}
+
+.modal-content input {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .search-trains h1 {
+    font-size: 24px;
+  }
+
+  .search-form-card {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+}
